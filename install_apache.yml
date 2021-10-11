@@ -1,0 +1,15 @@
+---
+- name: playbook to install apache
+  hosts: all
+  tasks:
+  - name: install latest apache rpm
+    yum:
+      name: httpd
+      state: latest
+      
+  - name: ensure service is running and enabled
+    service:
+      name: httpd
+      state: started
+      enabled: true
+      
